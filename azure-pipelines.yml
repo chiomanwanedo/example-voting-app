@@ -1,0 +1,38 @@
+trigger:
+  branches:
+    include:
+      - main
+
+variables:
+  IMAGE_TAG: $(Build.BuildId)
+
+stages:
+  - stage: BuildAndPush
+    displayName: Build and Push Docker Images to ACR
+    jobs:
+      - job: PushImages
+        displayName: Build & Push vote + result
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - task: Checkout@1
+
+          - task: Docker@2
+            displayName: Build and Push 'vote' image
+            inputs:
+              containerRegistry: 'dockeracr'  # your Docker Registry service connection
+              repository: 'vote'
+              command: 'buildAndPush'
+              Dockerfile: 'vote/Dockerfile'
+              tags: |
+                $(IMAGE_TAG)
+
+          - task: Docker@2
+            displayName: Build and Push 'result' image
+            inputs:
+              containerRegistry: 'DockerACR'
+              repository: 'result'
+              command: 'buildAndPush'
+              Dockerfile: 'result/Dockerfile'
+              tags: |
+                $(IMAGE_TAG)
