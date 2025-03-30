@@ -13,7 +13,7 @@ stages:
       - job: PushImages
         displayName: Build & Push vote + result
         pool:
-          vmImage: ubuntu-latest
+          vmImage: Default
         steps:
           - task: Checkout@1
 
