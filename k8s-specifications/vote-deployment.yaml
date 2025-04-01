@@ -22,6 +22,6 @@ spec:
           name: vote
         env:
         - name: OPTION_A
-          value: "Frontend"
+          value: "AZURE"
         - name: OPTION_B
-          value: "Backend"
+          value: "AWS"
