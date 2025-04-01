@@ -20,3 +20,8 @@ spec:
         ports:
         - containerPort: 80
           name: vote
+        env:
+        - name: OPTION_A
+          value: "Frontend"
+        - name: OPTION_B
+          value: "Backend"
