@@ -15,8 +15,13 @@ spec:
         app: result
     spec:
       containers:
-      - image: dockersamples/examplevotingapp_result
-        name: result
-        ports:
-        - containerPort: 80
-          name: result
+        - name: result
+          image: chiomaacr.azurecr.io/result:latest  # This will be auto-updated by your pipeline
+          ports:
+            - containerPort: 80
+              name: result
+          env:
+            - name: OPTION_A
+              value: "AZURE"
+            - name: OPTION_B
+              value: "AWS"
