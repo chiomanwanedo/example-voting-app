@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: result
-          image: chiomaacr.azurecr.io/result:latest  # This will be auto-updated by your pipeline
+          image: chiomaacr.azurecr.io/result:2579
           ports:
             - containerPort: 80
               name: result
