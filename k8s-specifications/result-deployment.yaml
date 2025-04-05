@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: result
-          image: chiomaacr.azurecr.io/result:3860
+          image: chiomaacr.azurecr.io/result:3866
           ports:
             - containerPort: 80
               name: result
